@@ -12,14 +12,15 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build && npm run build-tailwind",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -62,6 +63,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
     "cssnano": "^5.1.14",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.2",
     "postcss": "^8.4.20",
     "react": "^18.2.0",
